@@ -6,6 +6,10 @@ __pycache__/
 # Pycharm
 .idea
 
+
+# Migrations
+migrations/
+
 # C extensions
 *.so
 
