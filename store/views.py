@@ -11,7 +11,8 @@ def categories(request):
 
 def home(request):
     products = Product.objects.filter(is_active=True).order_by('-created')[:5]
-    return render(request, 'home.html')
+    context = {'products': products}
+    return render(request, 'home.html', context)
 
 
 def shop(request):

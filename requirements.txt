@@ -4,3 +4,4 @@ sqlparse==0.4.2
 tzdata==2022.2
 Pillow==9.2.0
 coverage==6.2
+flake8==5.0.4
