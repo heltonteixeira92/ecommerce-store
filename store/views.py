@@ -4,7 +4,7 @@ from .models import Category, Product
 
 
 def home(request):
-    products = Product.objects.filter(is_active=True).order_by('-created')[:5]
+    products = Product.products.all().order_by('-created')[:5]
     context = {'products': products}
     return render(request, 'home.html', context)
 
@@ -13,7 +13,7 @@ def shop(request):
     """
     all_products
     """
-    products = Product.objects.all()
+    products = Product.products.all()
     context = {'products': products
                }
 
