@@ -1,14 +1,11 @@
 from unittest import skip
 
-from django.http import HttpRequest
-
 from django.contrib.auth.models import User
+from django.http import HttpRequest
+from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 
 from store.models import Category, Product
-
-from django.test import Client, TestCase, RequestFactory
-
 from store.views import shop
 
 
@@ -31,7 +28,9 @@ class TestViewResponses(TestCase):
         """
         Test allowed hosts
         """
-        response = self.c.get('/')
+        response = self.c.get('/', HTTP_HOST='noaddress.com')
+        self.assertEqual(response.status_code, 400)
+        response = self.c.get('/', HTTP_HOST='127.0.0.1')
         self.assertEqual(response.status_code, 200)
 
     def test_product_detail_url(self):
@@ -49,6 +48,9 @@ class TestViewResponses(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_homepage_html(self):
+        """
+        Test homepage html
+        """
         request = HttpRequest()
         response = shop(request)
         html = response.content.decode('utf8')
