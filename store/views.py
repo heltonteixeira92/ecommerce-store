@@ -3,12 +3,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 
 
-def categories(request):
-    return {
-        'categories': Category.objects.all()
-    }
-
-
 def home(request):
     products = Product.objects.filter(is_active=True).order_by('-created')[:5]
     context = {'products': products}
