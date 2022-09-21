@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setu-python@v1
+        with:
+          python-version: 3.9
+          architecture: x64
+          cache: 'pip'
+      - name: Copiar configuração .env
+        run: |
+          cp contrib/env-sample .env
+      - name: Instalar dependências
+        run: |
+          pip install -r requirements.txt
+      - name: rodar flake8
+        uses: py-actions/flake8@v1
+        with:
+          checkName: 'flake8_py3'
+      - name: Rodar testes automatizados
+        run: |
+          py manage.py test
