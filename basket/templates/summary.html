@@ -62,4 +62,25 @@
         </div>
     </main>
 
+         <!--Start Delete To Cart Script -->
+    <script>
+        $(document).on('click', '#delete-button', function (e) {
+            e.preventDefault();
+             $.ajax({
+                type: 'POST',
+                url: '{% url "basket:basket_delete" %}',
+                data: {
+                    productid: $(this).data('index'),
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    action: 'post'
+                },
+                success: function (json){
+                },
+                error: function (xhr, errmsg, err) {}
+
+            });
+        })
+    </script>
+    <!--END Delete To Cart Script -->
+
 {% endblock content %}
