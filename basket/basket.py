@@ -67,5 +67,21 @@ class Basket():
             del self.basket[product_id]
             self.save()
 
+    def update(self, product, product_qty):
+        """
+        Update values in session data
+        :param product:
+        :param product_qty:
+        """
+        product_id = str(product)
+        qty = product_qty
+
+        if product_id in self.basket:
+            self.basket[product_id]['qty'] = qty
+
+        self.save()
+
     def save(self):
         self.session.modified = True
+
+
