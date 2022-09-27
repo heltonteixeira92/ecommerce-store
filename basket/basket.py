@@ -22,7 +22,7 @@ class Basket():
         :param product_qty:
         :param product:
         """
-        product_id = product.id
+        product_id = str(product.id)
         # import ipdb;ipdb.set_trace()
         if product_id in self.basket:
             self.basket[product_id]['qty'] = product_qty
