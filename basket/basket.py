@@ -1,5 +1,6 @@
-from store.models import Product
 from decimal import Decimal
+
+from store.models import Product
 
 
 class Basket():
@@ -83,5 +84,3 @@ class Basket():
 
     def save(self):
         self.session.modified = True
-
-
