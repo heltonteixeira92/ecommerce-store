@@ -30,4 +30,4 @@ jobs:
           checkName: 'flake8_py3'
       - name: Rodar testes automatizados
         run: |
-          py manage.py test
+          python manage.py test
