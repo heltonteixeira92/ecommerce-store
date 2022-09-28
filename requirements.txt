@@ -7,3 +7,4 @@ coverage==6.2
 flake8==5.0.4
 flake8-isort==4.2.0
 python-decouple==3.6
+django-countries==7.3.2
