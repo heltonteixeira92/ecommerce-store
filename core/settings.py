@@ -25,6 +25,9 @@ INSTALLED_APPS = [
     'store',
     'basket',
     'account',
+
+    # 3RD
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
