@@ -57,8 +57,6 @@ def account_activate(request, uidb64, token):
     else:
         return render(request, 'registration/activation_invalid.html')
 
-    return None
-
 
 @login_required
 def dashboard(request):

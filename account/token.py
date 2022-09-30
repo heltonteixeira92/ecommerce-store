@@ -10,4 +10,4 @@ class AccountActivationTokenGenerator(PasswordResetTokenGenerator):
         )
 
 
-account_activation_token = AccountActivationTokenGenerator
+account_activation_token = AccountActivationTokenGenerator()
