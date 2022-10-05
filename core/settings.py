@@ -113,3 +113,10 @@ LOGIN_URL = '/account/login/'
 
 # Email setting
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Stripe Payment
+PUBLISHABLE_KEY = config('PUBLISHABLE_KEY')
+STRIP_SECRET_KEY = config('STRIP_SECRET_KEY')
+
+# Basket session ID
+BASKET_SESSION_ID = 'basket'
