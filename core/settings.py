@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'basket',
     'account',
     'payment',
+    'order',
 
     # 3RD
     'django_extensions',
