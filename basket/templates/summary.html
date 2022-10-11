@@ -21,49 +21,57 @@
                                 <div class="col border-bottom">
                                     <div class="row p-3">
                                         <div class="col-6">Hardback Book</div>
-                                        <div class="col-6 text-end"><span class="h6 fw-bold">£{{ product.price }}</span>
+                                        <div class="">Sub Total: <span class="fw-bold">£</span>
+                                            <div id="subtotal"
+                                                 class="d-inline-flex fw-bold">{{ basket.get_subtotal_price }}</div>
                                         </div>
+                                        <div id="">Shipping <span class="small">(Next day delivery)</span>: <span
+                                                class="fw-bold">£11.50</span></div>
+                                        <div class="pt-2">Total to pay: <span class="fw-bold h5">£</span><span
+                                                id="total" class="fw-bold h5">{{ basket.get_total_price }}</span></div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="row p-3">
-                                        <div class="col-12">
-                                            <label for="select">Qty</label>
-                                            <select id="select{{ product.id }}">
-                                                <option selected>
-                                                    {{ item.qty }}
-                                                </option>
-                                                <option value="">1</option>
-                                                <option value="">2</option>
-                                                <option value="">3</option>
-                                                <option value="">4</option>
-                                            </select>
-                                            <button type="button" id="update-button" data-index="{{ product.id }}"
-                                                    class="btn btn-outline-secondary btn-sm update-button">
-                                                Update
-                                            </button>
-                                            <button type="button" id="delete-button" data-index="{{ product.id }}"
-                                                    class="btn btn-outline-secondary btn-sm delete-button">
-                                                Delete
-                                            </button>
-                                        </div>
+                            </div>
+                            <div class="col">
+                                <div class="row p-3">
+                                    <div class="col-12">
+                                        <label for="select">Qty</label>
+                                        <select id="select{{ product.id }}">
+                                            <option selected>
+                                                {{ item.qty }}
+                                            </option>
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4</option>
+                                        </select>
+                                        <button type="button" id="update-button" data-index="{{ product.id }}"
+                                                class="btn btn-outline-secondary btn-sm update-button">
+                                            Update
+                                        </button>
+                                        <button type="button" id="delete-button" data-index="{{ product.id }}"
+                                                class="btn btn-outline-secondary btn-sm delete-button">
+                                            Delete
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </div>
                 {% endwith %}
             {% endfor %}
-            <div class="col-12 text-end">
-                <div class="h6 fw-bold">Sub Total: R$
-                    <div id="subtotal" class="d-inline-flex">{{ basket.get_total_price }}</div>
-                </div>
-                <a role="button" href="{% url 'payment:basket' %}" class="btn btn-success fw-bold" type="submit">Checkout</a>
+        <div class="col-12 text-end">
+            <div class="h6 fw-bold">Sub Total: R$
+                <div id="subtotal" class="d-inline-flex">{{ basket.get_total_price }}</div>
             </div>
+            <a role="button" href="{% url 'payment:basket' %}" class="btn btn-success fw-bold"
+               type="submit">Checkout</a>
+        </div>
         </div>
     </main>
 
-         <!--Start Cart Script -->
+    <!--Start Cart Script -->
 
 
     <script>
