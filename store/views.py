@@ -4,16 +4,16 @@ from .models import Category, Product
 
 
 def home(request):
-    products = Product.products.all().order_by('-created')[:5]
-    context = {'products': products}
-    return render(request, 'home.html', context)
+    # products = Product.objects.all().order_by('-created')[:5]
+    # context = {'products': products}
+    return render(request, 'home.html')
 
 
 def shop(request):
     """
     all_products
     """
-    products = Product.products.all()
+    products = Product.objects.all()
     context = {'products': products
                }
 

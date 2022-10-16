@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'order',
 
     # 3RD
+    'mptt',
     'django_extensions',
     'corsheaders'
 ]
