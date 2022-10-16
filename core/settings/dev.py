@@ -1,4 +1,4 @@
-from .core import *
+from .core import DEBUG, INSTALLED_APPS, MIDDLEWARE
 
 # debug toolbar settings
 if DEBUG:
