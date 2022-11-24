@@ -21,7 +21,7 @@ def shop(request):
 
 
 def product_detail(request, slug):
-    product = get_object_or_404(Product, slug=slug, in_stock=True)
+    product = get_object_or_404(Product, slug=slug, is_active=True)
     context = {'product': product
                }
     return render(request, 'shop-single.html', context)
