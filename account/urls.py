@@ -38,4 +38,7 @@ urlpatterns = [
     path('addresses/edit/<slug:id>/', views.edit_address, name='edit_address'),
     path('addresses/delete/<slug:id>/', views.delete_address, name='delete_address'),
     path('addresses/set-default/<slug:id>/', views.set_default, name='set_default'),
+    # Wish list
+    path('wishlist/', views.wishlist, name='wishlist'),
+    path('withlist/add-to-wishlist/<int:id>/', views.add_to_wishlist, name="add_to_wishlist"),
 ]

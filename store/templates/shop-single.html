@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} {% endblock title %}
+{% block title %}
+    {% if product %} {{ product.title }} {% else %} Product {% endif %}
+{% endblock title %}
 {% block content %}
 
     <!-- Modal -->
